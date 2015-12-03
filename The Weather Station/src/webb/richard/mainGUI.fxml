@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="webb.richard.mainController">
+   <children>
+      <BorderPane prefHeight="768.0" prefWidth="1024.0">
+         <left>
+            <VBox prefHeight="583.0" prefWidth="162.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="163.0" text="Temperature">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="tempText">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="174.0" text="Pressure">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="pressureText">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="165.0" text="Humidity">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="humidityText">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="168.0" text="Wind Speed">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="windText">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <AnchorPane prefHeight="310.0" prefWidth="162.0">
+                     <children>
+                        <Button fx:id="updateText" layoutX="36.0" layoutY="32.0" mnemonicParsing="false" onAction="#updateData" prefHeight="25.0" prefWidth="90.0" text="Update" />
+                        <Button layoutX="36.0" layoutY="75.0" mnemonicParsing="false" onAction="#addData" prefHeight="25.0" prefWidth="90.0" text="Add" />
+                        <Button layoutX="36.0" layoutY="174.0" mnemonicParsing="false" onAction="#getConditions" prefHeight="25.0" prefWidth="90.0" text="Get Forecast" />
+                        <Button fx:id="Delete" layoutX="36.0" layoutY="122.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="25.0" prefWidth="90.0" text="Delete" />
+                     </children>
+                  </AnchorPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="30.0" top="35.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <right>
+            <TableView fx:id="dbTable" onSort="#initialize" prefHeight="706.0" prefWidth="319.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="tempColumn" prefWidth="56.0" text="Temp" />
+                <TableColumn fx:id="pressureColumn" prefWidth="84.0" text="Pressure" />
+                  <TableColumn fx:id="humidityColumn" prefWidth="85.0" text="Humidity" />
+                  <TableColumn fx:id="windColumn" prefWidth="75.0" text="Wind" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets bottom="30.0" right="15.0" top="35.0" />
+               </BorderPane.margin>
+            </TableView>
+         </right>
+         <center>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="706.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="376.0" prefHeight="20.0" prefWidth="111.0" text="Wind Chill">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="currentConditionsText" editable="false" layoutX="20.0" layoutY="80.0" prefHeight="112.0" prefWidth="431.0" />
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="439.0" text="Current Conditions" textOverrun="CLIP">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="284.0" prefHeight="20.0" prefWidth="122.0" text="Forecast">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="windChillText" editable="false" layoutX="135.0" layoutY="374.0" prefHeight="25.0" prefWidth="181.0" />
+                  <TextField fx:id="heatText" editable="false" layoutX="135.0" layoutY="331.0" prefHeight="25.0" prefWidth="181.0" />
+                  <Label alignment="CENTER" layoutX="21.0" layoutY="334.0" prefHeight="20.0" prefWidth="112.0" text="Heat Index">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="forecastText" layoutX="132.0" layoutY="281.0" prefHeight="25.0" prefWidth="300.0" />
+                  <Label layoutX="87.0" layoutY="5.0" prefHeight="27.0" prefWidth="298.0" text="Welcome to the Weather Station!">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="airTemp" fitHeight="150.0" fitWidth="200.0" layoutX="10.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="percipitation" fitHeight="150.0" fitWidth="200.0" layoutX="230.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
